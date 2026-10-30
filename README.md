@@ -32,40 +32,42 @@ A responsive product landing page for **K-Cha Kombucha**, a fizzy lemon prebioti
 
 ## 🗂️ Project Structure
 
+```
 k-cha-landing/
 │
-├── index.html # Main HTML file
-├── style.css # All styles & responsive breakpoints
-├── script.js # JavaScript interactions
+├── index.html              # Main HTML file
+├── style.css               # All styles & responsive breakpoints
+├── script.js               # JavaScript interactions
 │
 ├── Font/
-│ ├── TTNorms-Regular.otf
-│ └── TTNorms-Bold.otf
+│   ├── TTNorms-Regular.otf
+│   └── TTNorms-Bold.otf
 │
 ├── Pictures/
-│ ├── logo.png
-│ ├── Product.png
-│ ├── K-Cha Box.png
-│ ├── sachet.png
-│ ├── lemon.png
-│ ├── lemon.gif
-│ ├── halal logo-01.png
-│ ├── KKM logo-01.png
-│ ├── GMP logo-01.png
-│ ├── background2.png
-│ ├── geminiback.jfif
-│ ├── geminiback2.jfif
-│ ├── kcha-outdoor-natural.jpg
-│ └── K-cha background2.jfif
+│   ├── logo.png
+│   ├── Product.png
+│   ├── K-Cha Box.png
+│   ├── sachet.png
+│   ├── lemon.png
+│   ├── lemon.gif
+│   ├── halal logo-01.png
+│   ├── KKM logo-01.png
+│   ├── GMP logo-01.png
+│   ├── background2.png
+│   ├── geminiback.jfif
+│   ├── geminiback2.jfif
+│   ├── kcha-outdoor-natural.jpg
+│   └── K-cha background2.jfif
 │
 ├── Vid/
-│ ├── Kcha3.mp4
-│ └── Kcha4.mp4
+│   ├── Kcha3.mp4
+│   └── Kcha4.mp4
 │
 └── screenshot/
-├── screenshot1.png
-├── screenshot2.png
-└── screenshot3.png
+    ├── screenshot1.png
+    ├── screenshot2.png
+    └── screenshot3.png
+```
 
 ---
 
