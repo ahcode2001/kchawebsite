@@ -1,6 +1,6 @@
 # K-Cha Kombucha — Official Product Landing Page
 
-A responsive product landing page for **K-Cha Kombucha**, a fizzy lemon prebiotic kombucha drink by M-PLAN. Built with pure HTML, CSS, and JavaScript — no frameworks required.
+A responsive product landing page for **K-Cha Kombucha**, a fizzy lemon prebiotic kombucha drink. Built with pure HTML, CSS, and JavaScript — no frameworks required.
 
 ---
 
