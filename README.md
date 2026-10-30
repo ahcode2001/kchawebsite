@@ -60,13 +60,10 @@ k-cha-landing/
 │   └── K-cha background2.jfif
 │
 ├── Vid/
-│   ├── Kcha3.mp4
-│   └── Kcha4.mp4
-│
-└── screenshot/
-    ├── screenshot1.png
-    ├── screenshot2.png
-    └── screenshot3.png
+    ├── Kcha3.mp4
+    ├── K-Cha.mov
+    ├── Untitled.mp4
+    └── Kcha4.mp4
 ```
 
 ---
