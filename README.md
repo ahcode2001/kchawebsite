@@ -143,7 +143,7 @@ Available exclusively on **TikTok Shop**:
 
 For enquiries, bulk orders or distributorship:
 
-💬 [WhatsApp M-PLAN](https://wa.me/601120905342)
+💬 [WhatsApp](https://wa.me/601120905342)
 
 ---
 
