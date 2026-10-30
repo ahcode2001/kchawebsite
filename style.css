@@ -1,0 +1,2130 @@
+/* ----------------------------------------------------
+   1. Local Font Declarations (TT Norms from 'Font/' subfolder)
+---------------------------------------------------- */
+@font-face {
+  font-family: 'TT Norms';
+  src: url('Font/TTNorms-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Norms';
+  src: url('Font/TTNorms-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ----------------------------------------------------
+   2. Design Tokens & Root Variables
+---------------------------------------------------- */
+:root {
+  --kcha-yellow: #FFC629;         /* Brand Primary Yellow */
+  --kcha-yellow-hover: #E5B022;   /* Balanced Deeper Golden Yellow for Hover */
+  --kcha-green: #A2D45E;          /* Brand Accent Leaf Green */
+  --kcha-green-hover: #8ec448;    /* Green Hover */
+  --kcha-charcoal: #414042;       /* Primary Text, Headings & Dark Accents */
+  
+  --tiktok-black: #000000;
+  --tiktok-hover: #161823;
+  --muted-text: #6b7280;
+  --bg-page: #fdfdf9;
+  --bg-card: #ffffff;
+  --border: #f1f1eb;
+  --whatsapp: #25d366;
+  --whatsapp-hover: #1eb856;
+}
+
+/* ----------------------------------------------------
+   3. Reset & Base Styles
+---------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'TT Norms', system-ui, -apple-system, sans-serif;
+  color: var(--kcha-charcoal);
+  background-color: var(--bg-page);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ----------------------------------------------------
+   4. Announcement Header
+---------------------------------------------------- */
+.announcement-bar {
+  background: var(--kcha-yellow);
+  color: var(--kcha-charcoal);
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1rem;
+  letter-spacing: 0.01em;
+}
+
+/* ----------------------------------------------------
+   5. Navigation Bar & Logo
+---------------------------------------------------- */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid #fef3c7;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 95px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo.logo-large {
+  max-height: 75px; 
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo.logo-large:hover {
+  transform: scale(1.02);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--kcha-charcoal);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.whatsapp-link:hover {
+  color: #128c7e;
+}
+
+/* Language Dropdown Selector */
+.lang-selector {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-select {
+  padding: 0.5rem 1.8rem 0.5rem 1.1rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--kcha-charcoal);
+  font-family: 'TT Norms', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s;
+}
+
+.lang-select:focus {
+  border-color: var(--kcha-yellow);
+}
+
+.lang-selector::after {
+  content: "▾";
+  font-size: 0.8rem;
+  position: absolute;
+  right: 10px;
+  color: var(--kcha-charcoal);
+  pointer-events: none;
+}
+
+/* K-Cha Yellow "Buy Now" Header CTA Button */
+.btn-buy-nav,
+.nav-actions .btn-green {
+  background-color: var(--kcha-yellow) !important;
+  color: #ffffff !important;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.55rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+}
+
+.btn-buy-nav:hover,
+.nav-actions .btn-green:hover {
+  background-color: var(--kcha-yellow-hover) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(229, 176, 34, 0.35);
+}
+
+/* ----------------------------------------------------
+   6. Universal Button Components
+---------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.925rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--kcha-yellow);
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--kcha-yellow-hover) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(229, 176, 34, 0.35);
+}
+
+.btn-tiktok {
+  background-color: var(--tiktok-black);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-tiktok:hover {
+  background-color: var(--tiktok-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tiktok-icon {
+  fill: currentColor;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--kcha-charcoal);
+  color: var(--kcha-charcoal);
+}
+
+.btn-outline:hover {
+  background: var(--kcha-charcoal);
+  color: #ffffff;
+}
+
+.btn-whatsapp {
+  background-color: var(--whatsapp);
+  color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1eb856;
+}
+
+.btn-large {
+  padding: 0.85rem 1.85rem;
+  font-size: 1rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ----------------------------------------------------
+   Top Hero Opening Banner / Slide Video
+---------------------------------------------------- */
+.top-hero-banner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  background-color: #000000;
+  display: block;
+}
+
+.banner-image-container {
+  width: 100%;
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.banner-slide-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 1080;
+  max-height: 650px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .banner-slide-video {
+    max-height: none;
+  }
+}
+
+/* ----------------------------------------------------
+   Scroll Down Floating Indicator
+---------------------------------------------------- */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  z-index: 10;
+  cursor: pointer;
+  animation: bounceDown 2s infinite ease-in-out;
+}
+
+.scroll-down-indicator .scroll-text {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-down-indicator .scroll-arrow {
+  stroke: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  transition: transform 0.2s ease;
+}
+
+.scroll-down-indicator:hover .scroll-arrow {
+  stroke: var(--kcha-yellow);
+}
+
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -8px);
+  }
+  60% {
+    transform: translate(-50%, -4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-down-indicator {
+    bottom: 16px;
+  }
+  .scroll-down-indicator .scroll-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* ----------------------------------------------------
+   7. Hero Section (Clean Balanced Dimensions)
+---------------------------------------------------- */
+.hero {
+display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 3rem 1.5rem;
+  
+  /* 100vh minus the 95px header height forces it to occupy the full screen */
+  min-height: calc(100vh - 95px);
+  
+  scroll-margin-top: 95px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  display: inline-block;
+  background: #fdf5d6;
+  border: 1px solid var(--kcha-yellow);
+  color: var(--kcha-charcoal);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+body.lang-en .hero-text-block[lang="en"] { display: block !important; }
+body.lang-ms .hero-text-block[lang="ms"] { display: block !important; }
+
+.hero h1 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  color: var(--kcha-charcoal);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+.hero p {
+  color: var(--muted-text);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  border-radius: 20px;
+  border: 4px solid var(--kcha-yellow);
+  box-shadow: 0 15px 30px -5px rgba(255, 198, 41, 0.25);
+  display: block;
+  
+}
+
+/* ----------------------------------------------------
+   8. "Why Choose K-Cha" Section
+---------------------------------------------------- */
+.features-section {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  background-image: url('Pictures/background2.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 5rem 0;
+  scroll-margin-top: 95px;
+}
+
+.features-section .section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.features-section .section-title h2 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal);
+  text-shadow: 
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 20px #ffffff,
+    0 0 35px rgba(255, 255, 255, 0.95);
+}
+
+.features-section .section-title p {
+  color: var(--muted-text);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  text-shadow: 
+    0 0 4px #ffffff,
+    0 0 8px #ffffff,
+    0 0 16px rgba(255, 255, 255, 0.9);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 2.25rem 1.75rem;
+  border-radius: 16px;
+  border: 1px solid #eef0eb;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--kcha-yellow);
+  box-shadow: 0 10px 24px rgba(255, 198, 41, 0.2);
+}
+
+.feature-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.feature-card h3 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--kcha-charcoal);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.feature-card p {
+  color: #555962;
+  font-size: 0.925rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* ----------------------------------------------------
+   9. K-Cha Showcase: Overlapped Halal & Pop-Out Assets
+---------------------------------------------------- */
+.kcha-showcase-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 6rem 0;             /* Increases vertical breathing room */
+  min-height: 90vh;           /* Forces the section to take 100% of the screen height */
+  display: flex;
+  align-items: center;         /* Perfectly centers the box and text vertically */
+  overflow: visible;
+}
+
+.kcha-showcase-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+}
+
+.kcha-showcase-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Wrapper positioning context */
+.product-badge-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 500px;            /* Increased from 440px */
+  width: 100%;
+}
+
+.showcase-box-img {
+  width: 120%;
+  height: auto;
+  left: -40%;
+  display: block;
+  object-fit: contain;
+  position: relative; /* Allows z-index to take effect */
+  z-index: 2;        /* Sits in front of the lemon */
+}
+
+/* Halal badge on Desktop */
+.badge-halal-overlap {
+  position: absolute;
+  top: -75px;
+  right: -30px;
+  width: 250px;
+  height: 250px;  
+  object-fit: contain;
+  z-index: 5;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+/* Base style for pop-out assets: hidden initially */
+.pop-element {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              opacity 0.6s ease;
+  z-index: 4; /* Below halal badge (z-index: 5), above box */
+}
+
+/* Initial hidden positions (tucked behind/inside box) */
+.pop-lemon {
+  position: absolute;
+  top: -15%;
+  left: 700px;
+  width: 700px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;        /* Placed behind the box (z-index: 2) */
+  will-change: transform, opacity;
+  transform-origin: center center;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+}
+
+.pop-sachet {
+  bottom: 10%;
+  right: 10%;
+  width: 390px;
+  height: auto;
+  transform: scale(0.3) rotate(15deg);
+  z-index: 3;        /* Stays in front of the box */
+}
+
+/* Triggered State: Pops out and stays resting at the side */
+.product-badge-wrapper.is-popped .pop-lemon {
+  opacity: 1;
+  transform: translate(-65px, -35px) scale(1) rotate(-18deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+}
+
+.product-badge-wrapper.is-popped .pop-sachet {
+  opacity: 1;
+  transform: translate(45px, 25px) scale(1) rotate(-8deg);
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.22));
+}
+
+.kcha-showcase-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 420px;
+  position: relative;
+  z-index: 10;
+}
+
+.showcase-headline {
+  position: relative;
+  z-index: 12; /* Keeps the text in front of the lemon */
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  color: var(--kcha-charcoal);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.showcase-subhead {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.4rem;           /* Increased from 1.25rem */
+  line-height: 1.4;
+  color: #555962;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.cta-lemon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-black-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  color: #ffffff !important;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.75rem 1.85rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-black-pill span {
+  color: #ffffff !important;
+  line-height: 1;
+}
+
+.btn-black-pill:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.lemon-inside-btn {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-left: -6px;
+  margin-right: -10px;
+  margin-top: -18px;
+  margin-bottom: -12px;
+  display: block;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------
+   10. Pricing & TikTok Shop Grid
+---------------------------------------------------- */
+.pricing-section {
+width: 100%;
+  min-height: calc(100vh - 95px); /* Exactly fills one viewport height under sticky header */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       /* Centers header + cards vertically in the screen */
+  align-items: center;
+  padding: 1.5rem 1rem;          /* Compact padding so it doesn't push beyond the screen */
+  position: relative;
+  background-image: url('Pictures/geminiback.jfif');
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: cover;
+  background-blend-mode: overlay;
+  scroll-margin-top: 95px;
+}
+
+.pricing-header-center {
+width: 100% !important;
+  text-align: center !important;
+  margin: 0 auto 1.25rem auto !important; /* Tight margin to leave room for the cards */
+  display: block !important;
+}
+
+.pricing-header-center h2 { 
+font-family: 'TT Norms', sans-serif;
+  font-size: 2.2rem; /* Increase (e.g. 2.5rem) to make bigger, or decrease (e.g. 1.8rem) to make smaller */
+  font-weight: 700;
+  color: var(--kcha-charcoal, #414042);
+  text-align: center !important;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+
+  text-shadow: 
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 20px #ffffff,
+    0 0 35px rgba(255, 255, 255, 0.95);
+}
+
+.pricing-header-center p {
+font-family: 'TT Norms', sans-serif;
+  font-size: 0.925rem;         /* Scaled down from 1.05rem */
+  color: var(--muted-text);
+  text-align: center !important;
+  margin: 0 auto;
+  text-shadow: 
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 20px #ffffff,
+    0 0 35px rgba(255, 255, 255, 0.95);
+}
+
+.pricing-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 350px) !important; /* Slim width */
+  justify-content: center !important;
+  gap: 2rem;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1.5px solid #ecefe6;
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1rem 1.25rem; /* Tightened vertical padding */
+  position: relative;
+  display: flex !important;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.pricing-card:hover {
+transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card.highlight {
+border: 3px solid var(--kcha-yellow);
+  box-shadow: 0 10px 22px -4px rgba(255, 198, 41, 0.35);
+}
+
+.discount-badge { /* 7. Top Badges: "BEST VALUE" / "-19% OFF" */
+position: absolute;
+  top: -10px;
+  right: 14px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.ribbon { /* 7. Top Badges: "BEST VALUE" / "-19% OFF" */
+position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--kcha-yellow);
+  color: var(--kcha-charcoal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  z-index: 2;
+  
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.card-header h3 { /* 1. Card Title: "Full Box (30 Sachets)" */
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.25rem;
+  color: var(--kcha-charcoal);
+  font-weight: 700;
+}
+
+.pack-sub { /* 2. Subtitle: "6g x 30 Paket • 1 Bulan Bekalan" */
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-top: 0.3rem;
+}
+
+.price { /* 3. Main Price: "RM 153.00" */
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal);
+  margin-top: 0.5rem;
+}
+
+.old-price { /* 4. Original Price: "RM 190.00" */
+  font-size: 1.15rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+  font-weight: 400;
+  margin-left: 0.4rem;
+}
+
+.perks {
+  list-style: none;
+  margin: 1rem 0 1.25rem 0;  /* Reduced from 1rem 0 2rem 0 */
+  flex-grow: 1;
+  padding: 0;
+}
+
+.perks li { /* 5. Features List Items (e.g. "1x Full Box...", "19% DISCOUNT...") */
+  padding: 0.55rem 0;           /* Reduced from 0.65rem 0 */
+  border-bottom: 1px dashed #e5e7eb;
+  font-size: 0.925rem;      /* Scaled down from 0.95rem */
+  color: var(--kcha-charcoal, #414042);
+  line-height: 1.4;
+}
+
+.btn-tiktok-pill { /* 6. Button Text: "Claim Deal on TikTok" */
+display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: #000000;
+  color: #ffffff !important;
+  padding: 0.65rem 0.85rem;   /* Compact button height */
+  border-radius: 7px;
+  text-decoration: none;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-tiktok-pill span {
+color: #ffffff !important;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+.btn-tiktok-pill:hover {
+background-color: #161823;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
+}
+
+.tiktok-icon {
+fill: #ffffff;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* ----------------------------------------------------
+   10.5. Certifications & Trust Badges Section
+---------------------------------------------------- */
+.certifications-section {
+  padding: 4.5rem 0 3rem 0;
+  background-color: var(--bg-page);
+  border-top: 1px solid var(--border);
+}
+
+.certifications-section .section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.certifications-section .section-title h2 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.certifications-section .section-title p {
+  color: var(--muted-text);
+  font-size: 1rem;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--kcha-yellow);
+  box-shadow: 0 10px 24px rgba(255, 198, 41, 0.18);
+}
+
+.cert-img-wrapper {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.cert-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+}
+
+.cert-card h4 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.cert-card p {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------
+   10.6. Seamless Right-to-Left Scrolling Banner
+---------------------------------------------------- */
+.banner-insert-section {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-page, #fdfdf9);
+  line-height: 0;
+}
+
+.infinite-pattern-track {
+  width: 100%;
+  /* Set a fixed, proportional height for standard desktop viewing */
+  height: 320px;
+  background-image: url('Pictures/K-cha background2.jfif');
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  /* Maintain true aspect ratio height relative to the original 3500x1080 graphic */
+  background-size: auto 100%; 
+  
+  /* Hardware acceleration for stutter-free scrolling */
+  will-change: background-position;
+  
+  /* 40s duration: adjust for speed (smaller = faster, larger = slower) */
+  animation: scrollPatternRightToLeft 40s linear infinite;
+}
+
+/* Keyframes: shifts from initial point (0) to negative full graphic width */
+@keyframes scrollPatternRightToLeft {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    /* Shifts backward continuously, producing right-to-left flow */
+    background-position: -3500px 50%; 
+  }
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+  .infinite-pattern-track {
+    height: 180px;
+    animation-duration: 25s; /* Slightly faster on smaller viewports */
+  }
+}
+
+/* ----------------------------------------------------
+   Media & Video Showcase Section
+---------------------------------------------------- */
+.media-showcase-section {
+  padding: 0 0 3.5rem 0;
+  background-color: var(--bg-page);
+  border-top: 1px solid var(--border);
+}
+
+/* 3500x1080 Across-the-Screen Banners */
+.ultrawide-video-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background-color: #000000;
+  line-height: 0;
+}
+
+.ultrawide-video-container video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3500 / 1080;
+  object-fit: cover;
+  display: block;
+}
+
+.media-showcase-section .section-title {
+  text-align: center;
+  margin: 3.5rem 0 2.5rem 0;
+}
+
+.media-showcase-section .section-title h2 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.media-showcase-section .section-title p {
+  color: var(--muted-text);
+  font-size: 1rem;
+}
+
+/* 3-Column 9:16 Shorts Grid */
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.short-card {
+  background: #000000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.short-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.short-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 ratio */
+  height: 0;
+  background-color: #000000;
+}
+
+.short-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.short-caption {
+  padding: 0.85rem 1rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 0.85rem;
+  border-top: 1px solid #333333;
+}
+
+.short-caption .user-handle {
+  display: block;
+  font-weight: 700;
+  color: var(--kcha-yellow);
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.short-caption p {
+  color: #d1d5db;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Container matches the total width of the 3-column grid */
+.wide-video-container {
+  width: 100%;
+  max-width: 960px; /* Adjust to match the exact max-width of your 3-card grid container */
+  margin: 2.5rem auto 0 auto; /* 2.5rem gap below the 3 vertical videos */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background-color: #000000;
+  
+  /* Enforces exact 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
+}
+
+/* Forces video or iframe to neatly fill the 16:9 container */
+.wide-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+/* ----------------------------------------------------
+   11. Health & Diet Features Section (Refined With Image)
+---------------------------------------------------- */
+.health-benefits-section {
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background-color: #fafbfc; /* A very soft cool white to break apart the heavy yellow on the page */
+  border-top: 1px solid #edf0e8;
+  border-bottom: 1px solid #edf0e8;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-medium {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.health-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Badge above Heading */
+.health-badge-main {
+  display: inline-block;
+  background-color: #e9f5e6;
+  color: #2b5c2a;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* Heading of Section */
+.health-main-heading {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--kcha-charcoal, #414042);
+  line-height: 1.25;
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Benefit Cards List */
+.health-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.health-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 1.75rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f0f2eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.health-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.health-icon-wrapper {
+  background-color: #fff9e6; /* Soft, warm yellow tint */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  box-shadow: inset 0 2px 4px rgba(255, 198, 41, 0.15);
+}
+
+.health-text h3 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal, #414042);
+  margin-bottom: 0.35rem;
+}
+
+.health-text p {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #5d6168;
+}
+
+/* Right side Image Column */
+.health-image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border: 4px solid #ffffff;
+}
+
+.health-main-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* floating Visual Quality Stamp */
+.quality-stamp {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.stamp-icon {
+  background-color: #2b5c2a;
+  color: #ffffff;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.stamp-text {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal, #414042);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Responsive adjustment for tablet and below */
+@media (max-width: 900px) {
+  .health-benefits-section {
+    padding: 3.5rem 1rem;
+  }
+  
+  .health-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .health-image-col {
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .health-main-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+
+/* ----------------------------------------------------
+   12. Contact Section (Centered Card & WhatsApp Button)
+---------------------------------------------------- */
+.contact-section {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.contact-section .section-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contact-section .section-title h2 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--kcha-charcoal, #414042);
+}
+
+.contact-box {
+  display: block;
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--bg-card, #ffffff);
+  border: 1.5px solid #ededed;
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.contact-card h4 {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--kcha-charcoal, #414042);
+  font-weight: 700;
+}
+
+.contact-card p {
+  color: var(--muted-text, #6b7280);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 2rem auto;
+}
+
+.contact-card .btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #22c55e;
+  color: #ffffff !important;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.85rem 3rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card .btn-whatsapp:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* ----------------------------------------------------
+   End-of-Page Visual Banner & Overlay
+---------------------------------------------------- */
+.bottom-visual-banner {
+  width: 100%;
+  background-color: var(--bg-page);
+  display: block;
+}
+
+.banner-media-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.bottom-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.banner-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(
+    to right, 
+    rgba(0, 0, 0, 0.55) 0%, 
+    rgba(0, 0, 0, 0.25) 50%, 
+    rgba(0, 0, 0, 0) 100%
+  );
+  box-sizing: border-box;
+}
+
+.banner-title {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--kcha-yellow, #FFC629);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.15;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+.banner-description {
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0.5rem 0 1.25rem 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+.btn-banner-get {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--kcha-yellow, #FFC629);
+  color: #ffffff !important;
+  font-family: 'TT Norms', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.8rem 2.5rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(255, 198, 41, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1;
+}
+
+.btn-banner-get:hover {
+  background-color: var(--kcha-yellow-hover, #E5B022);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 176, 34, 0.5);
+}
+
+/* ----------------------------------------------------
+   13. Footer
+---------------------------------------------------- */
+footer {
+  border-top: 0px solid #fef3c7;
+  padding: 0.5rem 0;
+  text-align: center;
+  color: var(--muted-text);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* ----------------------------------------------------
+   14. Responsive Breakpoints
+---------------------------------------------------- */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .navbar {
+    height: 85px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-img {
+    max-width: 320px;
+  }
+
+  .kcha-showcase-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .kcha-showcase-left {
+    justify-content: center;
+  }
+
+  .showcase-product-img {
+    max-width: 320px;
+  }
+
+  /* Halal badge on Mobile/Tablet */
+  .badge-halal-overlap {
+    top: -12px;
+    right: 0px;
+    width: 95px;
+    height: 95px;
+    z-index: 5;        /* Stays on top of everything */
+  }
+
+  /* Pop-out elements on Mobile/Tablet */
+  .product-badge-wrapper.is-popped .pop-lemon {
+    transform: translate(-35px, -20px) scale(0.85) rotate(-15deg);
+  }
+  .product-badge-wrapper.is-popped .pop-sachet {
+    transform: translate(25px, 15px) scale(0.85) rotate(-5deg);
+  }
+
+  .kcha-showcase-right {
+    align-items: center;
+  }
+
+  .showcase-headline {
+    font-size: 2.1rem;
+  }
+
+  .pricing-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem;
+    max-width: 860px;
+    margin: 0 auto !important;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .certifications-section {
+    padding: 3rem 0 2rem 0;
+  }
+
+  .bottom-banner-img {
+    max-height: 380px;
+  }
+
+  .banner-text-overlay {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .banner-title {
+    font-size: 2rem;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+    margin: 0.35rem 0 1rem 0;
+  }
+
+  .btn-banner-get {
+    padding: 0.65rem 1.85rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-card .btn-whatsapp {
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shorts-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
+/* ----------------------------------------------------
+   15. Bulletproof Language Toggle Styles
+---------------------------------------------------- */
+/* Hide the other language completely */
+body.lang-en [lang="ms"],
+body:not(.lang-ms) [lang="ms"] {
+  display: none !important;
+}
+
+body.lang-ms [lang="en"] {
+  display: none !important;
+}
+
+/* Ensure inline elements remain inline when active */
+body.lang-en span[lang="en"],
+body.lang-en a[lang="en"],
+body.lang-ms span[lang="ms"],
+body.lang-ms a[lang="ms"] {
+  display: inline-block !important;
+}
+
+/* Ensure block containers expand normally when active */
+body.lang-en div[lang="en"],
+body.lang-en h1[lang="en"],
+body.lang-en h2[lang="en"],
+body.lang-en h3[lang="en"],
+body.lang-en h4[lang="en"],
+body.lang-en p[lang="en"],
+body.lang-ms div[lang="ms"],
+body.lang-ms h1[lang="ms"],
+body.lang-ms h2[lang="ms"],
+body.lang-ms h3[lang="ms"],
+body.lang-ms h4[lang="ms"],
+body.lang-ms p[lang="ms"] {
+  display: block !important;
+}
+
+
+
+/* ====================================================
+   MOBILE RESPONSIVE — Add to bottom of style.css
+==================================================== */
+
+/* ----------------------------------------------------
+   NAVBAR: Collapse for mobile
+---------------------------------------------------- */
+@media (max-width: 480px) {
+  .navbar {
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .logo.logo-large {
+    width: 130px !important;
+    max-width: 130px !important;
+    margin: 0 !important;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  /* Hide WhatsApp label text — keep icon only */
+  .nav-wa-text {
+    display: none !important;
+  }
+
+  .lang-select {
+    font-size: 0.75rem;
+    padding: 0.4rem 1.4rem 0.4rem 0.7rem;
+  }
+
+  .btn-primary {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+  }
+}
+
+/* ----------------------------------------------------
+   HERO: Single column, centered
+---------------------------------------------------- */
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    min-height: unset;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+    order: 2;
+  }
+
+  .hero-visual {
+    order: 1;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero-img {
+    max-width: 260px;
+    border-radius: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}
+
+/* ----------------------------------------------------
+   FEATURES GRID: Single column on mobile
+---------------------------------------------------- */
+@media (max-width: 580px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .features-section .section-title h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ----------------------------------------------------
+   SHOWCASE SECTION: Stack vertically
+---------------------------------------------------- */
+@media (max-width: 820px) {
+  .kcha-showcase-section {
+    padding: 3rem 1rem;
+    min-height: unset;
+  }
+
+  .kcha-showcase-container {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .kcha-showcase-left {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .product-badge-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .showcase-box-img {
+    width: 100%;
+    left: 0;
+  }
+
+  .badge-halal-overlap {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    right: -10px;
+  }
+
+  .pop-lemon {
+    width: 220px;
+    left: auto;
+    right: -60px;
+    top: -10%;
+  }
+
+  .pop-sachet {
+    width: 160px;
+  }
+
+  .kcha-showcase-right {
+    align-items: center;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .showcase-headline {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .showcase-subhead {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .cta-lemon-row {
+    justify-content: center;
+  }
+}
+
+/* ----------------------------------------------------
+   PRICING: Stack cards on mobile
+---------------------------------------------------- */
+@media (max-width: 640px) {
+  .pricing-section {
+    padding: 2.5rem 1rem;
+    min-height: unset;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 340px !important;
+    gap: 1.5rem;
+  }
+
+  .pricing-header-center h2 {
+    font-size: 1.6rem;
+  }
+
+  .price {
+    font-size: 1.75rem;
+  }
+}
+
+/* ----------------------------------------------------
+   CERTIFICATIONS: Single column
+---------------------------------------------------- */
+@media (max-width: 580px) {
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 1.25rem;
+  }
+
+  .cert-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ----------------------------------------------------
+   HEALTH BENEFITS: Stack layout
+---------------------------------------------------- */
+@media (max-width: 640px) {
+  .health-benefits-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .health-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .health-main-heading {
+    font-size: 1.5rem;
+  }
+
+  .health-card {
+    padding: 1.25rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .health-image-col {
+    max-width: 100%;
+  }
+}
+
+/* ----------------------------------------------------
+   VIDEO SHORTS: Single column on mobile
+---------------------------------------------------- */
+@media (max-width: 580px) {
+  .shorts-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .wide-video-container {
+    border-radius: 10px;
+    margin: 1.5rem auto 0 auto;
+  }
+}
+
+/* ----------------------------------------------------
+   BANNER VIDEO: Taller crop on mobile
+---------------------------------------------------- */
+@media (max-width: 640px) {
+  .banner-slide-video {
+    aspect-ratio: 9 / 16;   /* Portrait on mobile */
+    max-height: 520px;
+    object-position: center center;
+  }
+
+  .scroll-down-indicator {
+    bottom: 12px;
+  }
+}
+
+/* ----------------------------------------------------
+   BOTTOM BANNER: Adjust overlay & text
+---------------------------------------------------- */
+@media (max-width: 480px) {
+  .bottom-banner-img {
+    max-height: 300px;
+    object-position: center top;
+  }
+
+  .banner-text-overlay {
+    padding: 1.25rem 1.5rem;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .banner-title {
+    font-size: 1.6rem;
+  }
+
+  .banner-description {
+    font-size: 0.9rem;
+  }
+
+  .btn-banner-get {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.75rem;
+  }
+}
+
+/* ----------------------------------------------------
+   CONTACT SECTION
+---------------------------------------------------- */
+@media (max-width: 480px) {
+  .contact-box {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .contact-section .section-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-card h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ----------------------------------------------------
+   ANNOUNCEMENT BAR: Wrap text on mobile
+---------------------------------------------------- */
+@media (max-width: 480px) {
+  .announcement-bar {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.75rem;
+    line-height: 1.4;
+  }
+}
+
+/* ----------------------------------------------------
+   GENERAL TYPOGRAPHY SCALE DOWN
+---------------------------------------------------- */
+@media (max-width: 480px) {
+  .section-title h2,
+  .certifications-section .section-title h2,
+  .media-showcase-section .section-title h2,
+  .contact-section .section-title h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .section-title p,
+  .media-showcase-section .section-title p {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* ----------------------------------------------------
+   16:9 Video Section Above Health Benefits
+---------------------------------------------------- */
+.health-video-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid #edf0e8;
+}
+
+.health-video-container {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background-color: #000000;
+  aspect-ratio: 16 / 9;   /* Locks the 16:9 ratio */
+  width: 100%;
+}
+
+.health-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .health-video-section {
+    padding: 2rem 1rem;
+  }
+
+  .health-video-container {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .health-video-section {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .health-video-container {
+    border-radius: 8px;
+  }
+}
