@@ -149,5 +149,5 @@ For enquiries, bulk orders or distributorship:
 
 ## 📄 License
 
-This project is proprietary. All rights reserved © 2026 K-Cha Kombucha / M-PLAN.  
+This project is proprietary. All rights reserved © 2026 K-Cha Kombucha.  
 Unauthorized copying, distribution or reproduction is not permitted.
