@@ -8,9 +8,9 @@ A responsive product landing page for **K-Cha Kombucha**, a fizzy lemon prebioti
 
 > screenshots below ↓
 
-![K-Cha Screenshot 1](screenshot/screenshot1.png)
-![K-Cha Screenshot 2](screenshot/screenshot2.png)
-![K-Cha Screenshot 3](screenshot/screenshot3.png)
+![K-Cha Screenshot 1](Screenshot/screenshot1.png)
+![K-Cha Screenshot 2](Screenshot/screenshot2.png)
+![K-Cha Screenshot 3](Screenshot/screenshot3.png)
 
 ---
 
@@ -31,6 +31,7 @@ A responsive product landing page for **K-Cha Kombucha**, a fizzy lemon prebioti
 ---
 
 ## 🗂️ Project Structure
+
 k-cha-landing/
 │
 ├── index.html # Main HTML file
@@ -65,7 +66,6 @@ k-cha-landing/
 ├── screenshot1.png
 ├── screenshot2.png
 └── screenshot3.png
-
 
 ---
 
